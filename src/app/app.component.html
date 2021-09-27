@@ -40,6 +40,7 @@
     <mat-form-field>
       <input type="text" placeholder="You can search by drug name or by disease" [formControl]="myControl" matInput
         [matAutocomplete]="auto">
+        <!-- (keyup.enter)="onEnter()"> -->
 
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
@@ -49,7 +50,12 @@
     </mat-form-field>
   </form>
 
-  <div>Showing {{filteredOptions|json}} results</div>
+  <div>Showing {{(filteredOptions|async)?.length }} results</div>
 
-  <mat-card>Simple card</mat-card>
+  <mat-card *ngFor="let option of filteredOptions | async">
+    <mat-card-title>{{option.name}}</mat-card-title>
+    <mat-card-subtitle>Diseases: {{option.diseases}}</mat-card-subtitle>
+    <span class="released" >{{option.released}}</span>
+    <mat-card-content>{{option.description}}</mat-card-content>
+  </mat-card>
 </div>

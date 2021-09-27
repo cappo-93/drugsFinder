@@ -33,6 +33,16 @@ mat-card {
   width: 100%;
 }
 
+.released {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+}
+
+mat-card {
+  margin-bottom: 2%;
+}
+
 @media only screen and (max-width: 600px) {
   img {
     align-self: initial;

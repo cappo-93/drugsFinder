@@ -13,6 +13,6 @@ export class PostService {
     getData() {
         return this.opts.length ?
             of(this.opts) :
-            this.http.get('https://jsonplaceholder.typicode.com/users').pipe(tap((data: any) => this.opts = data))
+            this.http.get('http://localhost:3000/drugs').pipe(tap((data: any) => this.opts = data))
     }
 }

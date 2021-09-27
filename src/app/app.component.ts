@@ -4,17 +4,25 @@ import { startWith, debounceTime, distinctUntilChanged, switchMap, map } from 'r
 import { FormControl } from '@angular/forms';
 import { PostService } from 'src/post.service';
 
+type Drug = {
+  id: string,
+  diseases: [string],
+  description: string,
+  name: string,
+  released: string,
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
+
 export class AppComponent {
 
   myControl = new FormControl();
   options = [];
-  filteredOptions: Observable<any>;
+  filteredOptions: Observable<Drug[]>;
   valueable: string = '';
 
   constructor(private service: PostService) {
@@ -29,7 +37,6 @@ export class AppComponent {
   }
 
   filter(val: string): Observable<any> {
-
     return this.service.getData()
       .pipe(
         map((response: any) => response.filter((option: any) => {
@@ -37,4 +44,8 @@ export class AppComponent {
         }))
       )
   }
+
+  // onEnter() {
+  //   this.filter()
+  // }
 }
