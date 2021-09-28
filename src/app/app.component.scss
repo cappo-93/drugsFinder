@@ -43,6 +43,12 @@ mat-card {
   margin-bottom: 2%;
 }
 
+button {
+  background-color: white;
+  border-color: white;
+  border-style: hidden;
+}
+
 @media only screen and (max-width: 600px) {
   img {
     align-self: initial;

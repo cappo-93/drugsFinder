@@ -4,7 +4,7 @@ import { startWith, debounceTime, distinctUntilChanged, switchMap, map } from 'r
 import { FormControl } from '@angular/forms';
 import { PostService } from 'src/post.service';
 
-type Drug = {
+export type Drug = {
   id: string,
   diseases: [string],
   description: string,
@@ -44,8 +44,4 @@ export class AppComponent {
         }))
       )
   }
-
-  // onEnter() {
-  //   this.filter()
-  // }
 }
